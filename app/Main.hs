@@ -13,8 +13,8 @@ import Debug.Trace
 import Text.AhoCorasick
 import Data.Map (Map, fromList, (!), keys)
 
-fixFile ∷ String → StateMachine Char String → Map String String → String → String → IO ()
-fixFile n sm rm din dout = doesFileExist fn ≫= \p → when p go
+fixFile ∷ StateMachine Char String → Map String String → String → String → String → IO ()
+fixFile sm rm din dout n = doesFileExist fn ≫= \p → when p go
     where fn = din ⧺ ('/':n)
           go = readFile fn ≫= writeFile (dout ⧺ ('/':n)) ∘ fixString sm rm
 
@@ -22,7 +22,8 @@ fixString ∷ StateMachine Char String → Map String String → String → Stri
 fixString _ _ "" = ""
 fixString sm rm cs
     | null ps = cs
-    | otherwise = bcs ⧺ rm ! v ⧺ fixString sm rm acs
+    | otherwise = bcs ⧺ rm ! v ⧺ ['/' | (not ∘ null $ acs) ∧ head acs ≠ '"'] ⧺
+                  fixString sm rm acs
     where ps = findAll sm cs
           i = minimum ∘ map pIndex $ ps
           ps' = filter (\p' → pIndex p' ≡ i) $ ps
@@ -32,8 +33,8 @@ fixString sm rm cs
           acs = drop (pIndex p + pLength p) cs
           v = pVal p
 
-process ∷ [String] → StateMachine Char String → Map String String → String → String → IO ()
-process ns sm rm din dout = forM_ ns $ \n → fixFile n sm rm din dout
+process ∷ StateMachine Char String → Map String String → String → String → IO ()
+process sm rm din dout = listDirectory din ≫= mapM_ (fixFile sm rm din dout)
 
 main ∷ IO ()
 main = do
@@ -42,6 +43,5 @@ main = do
          BSC.split '\n' <$> BSC.readFile fr
     let rm = fromList rs
     let sm = makeSimpleStateMachine ∘ keys $ rm
-    ns ← listDirectory din
-    process ns sm rm din dout
+    process sm rm din dout
 

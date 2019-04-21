@@ -1,3 +1,6 @@
 .stack-work/
 future-haskell-demo.cabal
 *~
+data/in
+data/out
+.*
