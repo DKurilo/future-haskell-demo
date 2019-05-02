@@ -63,10 +63,8 @@ executables:
     main:                Main.hs
     source-dirs:         app
     ghc-options:
-    - -threaded
     - -O2
     - -rtsopts
-    - -with-rtsopts=-N
     dependencies:
     - future-haskell-demo
     - base-unicode-symbols >0.2 && <0.3
