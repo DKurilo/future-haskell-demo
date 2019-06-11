@@ -1,8 +1,15 @@
 # future-haskell-demo
 
+## What is it  
+
+I created this presentation to involve as people as I can in Haskell. I'm very beginner in Haskell to, so this is very basic information.  
+
 ## Related presentation  
 
-https://docs.google.com/presentation/d/1RuJ0BTenFBdTrBu4vvpAikTTrG5Fy4yWyLwGDm4pI44/edit?usp=sharing
+`https://docs.google.com/presentation/d/1RuJ0BTenFBdTrBu4vvpAikTTrG5Fy4yWyLwGDm4pI44/` 
+In case this link is not working, try this:  
+`https://docs.google.com/presentation/d/1oyEfGM8ewHcWW_iyYUN7Cha22ybHxPcI4hMzYdyIvQs/`  
+Or open pdf file `Future-Haskell-Presentation.pdf` from this repo.  
 
 ## GHCi
 
