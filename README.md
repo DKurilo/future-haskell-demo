@@ -6,7 +6,7 @@ I created this presentation to involve as people as I can in Haskell. I'm very b
 
 ## Related presentation  
 
-`https://docs.google.com/presentation/d/1RuJ0BTenFBdTrBu4vvpAikTTrG5Fy4yWyLwGDm4pI44/` 
+`https://docs.google.com/presentation/d/1RuJ0BTenFBdTrBu4vvpAikTTrG5Fy4yWyLwGDm4pI44/`  
 In case this link is not working, try this:  
 `https://docs.google.com/presentation/d/1oyEfGM8ewHcWW_iyYUN7Cha22ybHxPcI4hMzYdyIvQs/`  
 Or open pdf file `Future-Haskell-Presentation.pdf` from this repo.  
